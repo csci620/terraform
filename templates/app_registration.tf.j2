@@ -1,0 +1,8 @@
+{{ app_tf_header }}
+
+resource "azuread_application" "{{qvc_default_name}}" {
+  display_name               = "{{qvc_default_name}}"
+  available_to_other_tenants = true
+}
+
+{{ app_tf_footer }}

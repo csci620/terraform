@@ -1,0 +1,80 @@
+output az_regions {
+    value = {
+        use1 = "eastus"
+        use2 = "eastus2"
+        usnc = "northcentralus"
+        ussc = "southcentralus"
+        usc1 = "centralus"
+        uswc = "westcentralus"
+        usw1 = "westus"
+        usw2 = "westus2"
+    }
+}
+
+output az_regions_rev {
+    value  = {
+        eastus = "use1"
+        eastus2 = "use2"
+        northcentralus = "usnc"
+        southcentralus = "ussc"
+        centralus = "usc1"
+        westcentralus = "uswc"
+        westus = "usw1"
+        westus2 = "usw2"
+        northeurope = "eun1"
+        westeurope = "euw1"
+        ukwest = "ukw1"
+        uksouth = "uks1"
+        francecentral = "frc1"
+        francesouth = "frs1"
+        southeastasia = "asse"
+        eastasia = "ase1"
+        australiaeast = "aue1"
+        australiasoutheast = "ause"
+        chinaeast = "cne1"
+        chinanorth = "cnn1"
+        centralindia = "inc1"
+        westindia = "inw1"
+        southindia = "ins1"
+        japaneast = "jpe1"
+        japanwest = "jpw1"
+        koreacentral = "krc1"
+        koreasouth = "krs1"
+        southafricawest = "zaw1"
+        southafricanorth = "zan1"
+    }
+} 
+
+# https =//docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions
+output az_region_pairings {
+    value = {
+        eastasia = "southeastasia"
+        southeastasia = "eastasia"
+        australiaeast = "australiasoutheast"
+        australiasoutheast = "australiaeast"
+        australiacentral = "australiacentral2"
+        australiacentral2 = "australiacentral"
+        brazilsouth = "southcentralus"
+        canadacentral = "canadaeast"
+        canadaeast = "canadacentral"
+        chinanorth = "chinaeast"
+        chinaeast = "chinanorth"
+        northeurope = "westeurope"
+        westeurope = "northeurope"
+        centralindia = "southindia"
+        southindia = "centralindia"
+        westindia = "southindia"
+        japaneast = "japanwest"
+        japanwest = "japaneast"
+        koreasouth = "koreacentral"
+        koreacentral = "koreasouth"
+        eastus = "westus"
+        eastus2 = "centralus"
+        westus = "eastus"
+        westus2 = "westcentralus"
+        northcentralus = "southcentralus"
+        southcentralus = "northcentralus"
+        ukwest = "uksouth"
+        uksouth = "ukwest"
+    }    
+}

@@ -1,0 +1,39 @@
+{{ app_tf_header }}
+{% 
+    set deployable_vars = [
+        "qvc_mnemonic",
+        "qvc_product_line",
+        "qvc_product",
+        "qvc_component",
+        "qvc_environment_name",
+        "qvc_default_name",
+        "qvc_base_url",
+        "qvc_default_domain",
+        "az_subscription_id",
+        "az_subscription_mnemonic",
+        "az_client_id",
+        "az_default_region",
+        "az_resource_group",
+        "az_keyvault",
+        "az_keyvault_rg",
+        "az_keyvault_uri"
+    ]
+-%}
+{% for deployable_var in deployable_vars %}
+variable "{{ deployable_var }}" {
+  type    = string
+  default = "{{ lookup('vars', deployable_var, default='') }}"
+}
+{% endfor %}
+variable "tags" {
+    type = map(string)
+    default = {
+      qvc_product_line = "{{ qvc_product_line }}"
+      qvc_product = "{{ qvc_product }}"
+{% if qvc_component is defined %}      
+      qvc_component = "{{ qvc_component }}"
+{% endif %}
+    }
+}
+
+{{ app_tf_footer }}

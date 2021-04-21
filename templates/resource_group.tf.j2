@@ -1,0 +1,8 @@
+{{ app_tf_header }}
+
+resource azurerm_resource_group "resource_group" {
+    name = var.az_resource_group
+    location = var.az_default_region
+}
+
+{{ app_tf_footer }}
